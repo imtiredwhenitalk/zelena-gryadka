@@ -1,0 +1,88 @@
+body {
+  background: #f6fff6 url('../img/main.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+#basket-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin: 32px 0;
+}
+.basket-product {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #0001;
+  width: 320px;
+  padding: 18px 16px 22px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+  position: relative;
+}
+.basket-product:hover {
+  box-shadow: 0 6px 32px #1ca02c33;
+  transform: translateY(-4px) scale(1.03);
+}
+.basket-product img {
+  width: 100%;
+  max-width: 200px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: #eafbe6;
+}
+.basket-product h3 {
+  font-size: 1.2rem;
+  color: #228B22;
+  margin: 8px 0 4px 0;
+  text-align: center;
+}
+.basket-product p {
+  color: #444;
+  font-size: 1rem;
+  margin: 4px 0;
+  text-align: center;
+}
+.basket-product .btn-row {
+  display: flex;
+  width: 100%;
+  gap: 12px;
+  margin-top: 18px;
+}
+.basket-product button {
+  flex: 1 1 50%;
+  background: linear-gradient(90deg, #1ca02c 60%, #228B22 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin: 0;
+}
+.basket-product button.remove-btn {
+  background: #e53935;
+}
+.basket-product button:hover {
+  background: linear-gradient(90deg, #ff3c00 60%, #228B22 100%);
+  transform: scale(1.08);
+}
+.basket-product button.remove-btn:hover {
+  background: #b71c1c;
+}
+@media (max-width: 700px) {
+  #basket-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .basket-product {
+    width: 95vw;
+    max-width: 340px;
+  }
+}

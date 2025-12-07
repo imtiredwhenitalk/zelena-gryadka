@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Додати товар — Зелена Грядка</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .add-product-form {
+            max-width: 420px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px #0001;
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .add-product-form label {
+            font-weight: 600;
+            color: #228B22;
+        }
+        .add-product-form input, .add-product-form textarea, .add-product-form select {
+            padding: 8px 12px;
+            border: 1.5px solid #228B22;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .add-product-form button {
+            background: linear-gradient(90deg, #1ca02c 60%, #228B22 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+        .add-product-form button:hover {
+            background: #176d1a;
+        }
+    </style>
+</head>
+<body>
+    <header class="zg-header">
+        <a href="main.html" class="zg-title-link"><span class="zg-title">Зелена грядка</span></a>
+    </header>
+    <main>
+        <h2 style="text-align:center; color:#228B22;">Додати новий товар</h2>
+        <form class="add-product-form" method="post" enctype="multipart/form-data" action="/add_product">
+            <label>Назва товару</label>
+            <input type="text" name="name" required>
+            <label>Опис</label>
+            <textarea name="desc" required></textarea>
+            <label>Ціна</label>
+            <input type="number" name="price" required>
+            <label>Категорія</label>
+            <select name="category">
+                <option>Овочі</option>
+                <option>Фрукти</option>
+                <option>Добрива</option>
+                <option>Ягоди</option>
+                <option>Інвентар</option>
+                <option>Засоби захисту</option>
+                <option>Інше</option>
+            </select>
+            <label>Картинка</label>
+            <input type="file" name="image" required>
+            <button type="submit">Додати товар</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,338 @@
+/* Банер на головній */
+.zg-banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 32px auto;
+  background: none;
+  min-height: 320px;
+}
+.zg-banner-img {
+  max-width: 700px;
+  width: 90vw;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px #0002, 0 1.5px 0 #fff;
+  object-fit: cover;
+  display: block;
+}
+footer {
+  text-align: center;
+  margin-top: 32px;
+  color: #228B22;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 12px 0 8px 0;
+  width: 100%;
+  font-size: 1.05rem;
+}
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: #f6fff6;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 16px #0001;
+  margin-bottom: 0;
+}
+
+.zg-header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 16px #0001;
+  margin-bottom: 0;
+}
+.zg-topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 32px 10px 32px;
+}
+.zg-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #eafbe6;
+}
+.zg-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #228B22;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #b6e7b6, 0 1px 0 #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin-right: 32px;
+}
+.zg-search {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+.zg-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid #228B22;
+  border-radius: 18px 0 0 18px;
+  font-size: 1rem;
+  outline: none;
+}
+.zg-search button {
+  background: #228B22;
+  color: #fff;
+  border: none;
+  border-radius: 0 18px 18px 0;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.zg-search button:hover {
+  background: #176d1a;
+}
+.zg-icons {
+  display: flex;
+  gap: 18px;
+  font-size: 1.5rem;
+  color: #228B22;
+}
+.zg-nav {
+  background: #1ca02c;
+  width: 100%;
+  box-shadow: 0 2px 8px #0001;
+}
+.zg-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0 32px;
+  list-style: none;
+}
+.zg-menu > li {
+  position: relative;
+}
+.zg-menu > li > a {
+  display: block;
+  padding: 14px 22px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s;
+}
+.zg-menu > li:hover > a,
+.zg-menu > li > a:focus {
+  background: #228B22;
+  color: #fff;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 220px;
+  background: #fff;
+  box-shadow: 0 4px 16px #0002;
+  border-radius: 0 0 10px 10px;
+  z-index: 100;
+  padding: 8px 0;
+}
+.zg-menu > li:hover > .submenu,
+.submenu li.has-submenu:hover > .submenu {
+  display: block;
+}
+.submenu li {
+  position: relative;
+}
+.submenu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 22px;
+  color: #228B22;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 6px;
+}
+.submenu a:hover {
+  background: #eafbe6;
+  color: #176d1a;
+}
+.submenu .submenu {
+  left: 100%;
+  top: 0;
+  border-radius: 0 10px 10px 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 16px #0002;
+}
+.has-submenu > a:after {
+  content: '▶';
+  font-size: 0.8em;
+  margin-left: 8px;
+  color: #228B22;
+}
+.zg-header {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 16px #0001;
+  margin-bottom: 0;
+}
+
+.zg-topbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 10px 32px 10px 32px;
+}
+
+.zg-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #eafbe6;
+}
+
+.zg-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #228B22;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #b6e7b6, 0 1px 0 #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin-right: 32px;
+}
+
+.zg-search {
+  flex: 1 1 300px;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+
+.zg-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid #228B22;
+  border-radius: 18px 0 0 18px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.zg-search button {
+  background: #228B22;
+  color: #fff;
+  border: none;
+  border-radius: 0 18px 18px 0;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.zg-search button:hover {
+  background: #176d1a;
+}
+
+.zg-icons {
+  display: flex;
+  gap: 18px;
+  font-size: 1.5rem;
+  color: #228B22;
+}
+
+.zg-nav {
+  background: #1ca02c;
+  width: 100%;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.zg-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0 32px;
+  list-style: none;
+}
+
+.zg-menu > li {
+  position: relative;
+}
+
+.zg-menu > li > a {
+  display: block;
+  padding: 14px 22px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.zg-menu > li:hover > a,
+.zg-menu > li > a:focus {
+  background: #228B22;
+  color: #fff;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 220px;
+  background: #fff;
+  box-shadow: 0 4px 16px #0002;
+  border-radius: 0 0 10px 10px;
+  z-index: 100;
+  padding: 8px 0;
+}
+
+.zg-menu > li:hover > .submenu,
+.submenu li.has-submenu:hover > .submenu {
+  display: block;
+}
+
+.submenu li {
+  position: relative;
+}
+
+.submenu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 22px;
+  color: #228B22;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 6px;
+}
+
+.submenu a:hover {
+  background: #eafbe6;
+  color: #176d1a;
+}
+
+.submenu .submenu {
+  left: 100%;
+  top: 0;
+  border-radius: 0 10px 10px 10px;
+  min-width: 200px;
+  box-shadow: 0 4px 16px #0002;
+}
+
+.has-submenu > a:after {
+  content: '▶';
+  font-size: 0.8em;
+  margin-left: 8px;
+  color: #228B22;
+}
