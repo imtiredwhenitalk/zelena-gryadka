@@ -1,0 +1,45 @@
+services:
+  db:
+    image: docker.io/library/postgres:16
+    environment:
+      POSTGRES_USER: greengarden
+      POSTGRES_PASSWORD: greengarden
+      POSTGRES_DB: greengarden
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg2://greengarden:greengarden@db:5432/greengarden
+      JWT_SECRET: CHANGE_ME_SUPER_SECRET
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
+      - media:/app/media
+      - ./seed:/seed
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE: http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  media:

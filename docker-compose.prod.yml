@@ -1,0 +1,65 @@
+services:
+  db:
+    image: docker.io/library/postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-greengarden}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-greengarden}
+      POSTGRES_DB: ${POSTGRES_DB:-greengarden}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    restart: always
+    environment:
+      DATABASE_URL: postgresql+psycopg2://$POSTGRES_USER:$POSTGRES_PASSWORD@db:5432/$POSTGRES_DB
+      JWT_SECRET: ${JWT_SECRET:-change-me}
+      MEDIA_DIR: /data/media
+    volumes:
+      - media:/data/media
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    restart: always
+    environment:
+      # empty -> same-origin through nginx
+      NEXT_PUBLIC_API_BASE: ""
+    depends_on:
+      - backend
+
+  nginx:
+    image: nginx:1.27-alpine
+    restart: always
+    environment:
+      DOMAIN: ${DOMAIN}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/templates:/etc/nginx/templates:ro
+      - letsencrypt:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
+      - media:/data/media:ro
+    depends_on:
+      - frontend
+      - backend
+
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - letsencrypt:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
+    entrypoint: ["sh","-c","trap exit TERM; while :; do certbot renew --webroot -w /var/www/certbot --quiet; sleep 12h & wait $${!}; done"]
+
+volumes:
+  pgdata:
+  media:
+  letsencrypt:
+  certbot-www:
